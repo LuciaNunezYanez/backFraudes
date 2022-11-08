@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="icon" href="images/logo_antiextorsion.png" type="image/png">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <title>Antiextorsión Dgo</title>
+
+
+</head>
+
+<body>
+    <div class="container-fluid fondo p-0" style="min-height: 100% !important; ">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-light" style="background-color: #607D8B !important;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Antiextorsión Durango</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tips">Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" href="/aprivacidad">Aviso de privacidad</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="row justify-content-center mt-3 align-items-center">
+            <div class="col-md-6 col-11">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col text-center">
+                        <img src="images/gobierno.png" class="img-fluid" style="max-height: 90px; object-fit: cover; min-height: 60px;" height="auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="images/ssp.png" class="img-fluid" style="max-height: 90px; object-fit: cover; min-height: 45px;" height="auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="images/c5.png" class="img-fluid" style="max-height: 75px; object-fit: cover;" height="auto">
+                    </div>
+                    <div class="col text-center">
+                        <img src="images/089.png" class="img-fluid" style="max-height: 70px; object-fit: cover;" height="auto">
+                    </div>
+                    <!-- <div class="col text-center">
+                        <img src="images/ucibernetica.png" class="img-fluid" style="max-height: 90px; object-fit: cover; min-height: 60px;" height="auto">
+                    </div> -->
+                </div>
+                <hr style="border: 1px solid #607D8B">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-8 col-xxl-6 text-center">
+                <p>La información que se maneja dentro de este sitio es generada por el Servicio de Denuncia Anónima 089 del Estado de Durango.</p>
+                <p>Si desea denunciar algún número telefónico utilizado para realizar fraude o extorsión marque al número 089.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <div class="card col-10 col-lg-5 mt-4">
+                <div class="card-body pb-5">
+                    <div class="row justify-content-center">
+                        <div class="row justify-content-center">
+                            <div class="col-10">
+                                <p class="text-center" style="font-size: 20px;">Seleccione una fecha para consultar los números con registro de fraude de extorsión de ese día.</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-9 col-sm-6">
+                                <div class="input-group">
+                                    <input type="date" class="form-control text-center" autocomplete="off" id="txtFecha" required>
+                                    <button id="btnBuscarDia" class="btn btn-outline-success" type="button">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-10">
+                            <table id="tablaNumerosDia" class="table table-stripedd table-hover text-center" style="background-color: #607D8B;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center h5 text-white">Números con registro</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card col-10 col-lg-5 mt-4">
+                <div class="card-body pb-5">
+                    <div class="row justify-content-center">
+                        <div class="row justify-content-center">
+                            <div class="col-10">
+                                <p class="text-center" style="font-size: 20px;">Ingrese un número de teléfono para consultar si tiene reporte de fraude o extorsión en el estado de Durango.</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-9 col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Al menos 4 dígitos" class="form-control text-center" autocomplete="off" id="numeroTelefono" minlength="7" maxlength="10" pattern="[0-9]{10}" required>
+                                    <button id="btnBuscar" class="btn btn-outline-success" type="button">Buscar</button>
+                                    <!-- <button id="btnBuscar" class="btn btn-outline-success" onclick="btn_click(document.getElementById('numeroTelefono').value)" type="submit">Buscar</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-10">
+                            <table id="tablaNumeros" class="table table-stripedd table-hover text-center" style="background-color: #607D8B;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center h5 text-white">Números que coinciden</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row align-items-end mt-5 mb-3">
+            <div class="col text-center pb-4">
+
+                <h5 style="color: red; font-size: 24px; font-weight: bold;">¡NO CAIGAS!</h5>
+                <h5 style="color: red; font-size: 24px; font-weight: bold;">CUELGA Y DENUNCIA</h5>
+                <img src="images/089.png" style="max-height: 70px;">
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+    <script>
+        $("document").ready(function(event) {
+
+            // Obtener fecha y formatearla al input
+            const fecha = new Date();
+            const hoy = fecha.getUTCFullYear() + '-' + (fecha.getMonth() + 1) + '-' + (fecha.getDate() - 1);
+            document.getElementById("txtFecha").value = hoy;
+
+            // Limpiar y destruir la tabla
+            $('#tablaNumerosDia').DataTable().clear();
+            $('#tablaNumerosDia').DataTable().destroy();
+
+            // Volver a llenarla con la información
+            $('#tablaNumerosDia').DataTable({
+                "ajax": {
+                    "type": "get",
+                    "dataSrc": "",
+                    "url": "http://189.254.158.196:8081/api/numeros/w/fecha/" + hoy
+                },
+                "columns": [{
+                    "data": "numero_telefonico"
+                }],
+                "searching": false,
+                "paging": false,
+                "info": false,
+                "retrieve": true,
+                "destroy": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    // "sZeroRecords": "No se encontró el número ",
+                    "sEmptyTable": "No hay ningún número registrado de fraude o extorsión en la fecha seleccionada.",
+                    "sLoadingRecords": "Buscando..",
+                }
+            });
+        });
+
+        $("#btnBuscarDia").click(function(event) {
+
+
+            var fecha = document.getElementById('txtFecha').value;
+            if (fecha.length > 8) {
+                // Limpiar y destruir la tabla
+                $('#tablaNumerosDia').DataTable().clear();
+                $('#tablaNumerosDia').DataTable().destroy();
+
+                // Volver a llenarla con la información
+                $('#tablaNumerosDia').DataTable({
+                    "ajax": {
+                        "type": "get",
+                        "dataSrc": "",
+                        "url": "http://189.254.158.196:8081/api/numeros/w/fecha/" + fecha
+                    },
+                    "columns": [{
+                        "data": "numero_telefonico"
+                    }],
+                    "searching": false,
+                    "paging": false,
+                    "info": false,
+                    "retrieve": true,
+                    "destroy": true,
+                    "language": {
+                        "sProcessing": "Procesando...",
+                        // "sZeroRecords": "No se encontró el número ",
+                        "sEmptyTable": "No hay ningún número registrado de fraude o extorsión en la fecha seleccionada.",
+                        "sLoadingRecords": "Buscando..",
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: '¡Seleccione una fecha correcta!',
+                    icon: 'error',
+                    confirmButtonColor: '#61A1BF',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.close();
+                    }
+                })
+            }
+        });
+
+
+        $("#btnBuscar").click(function(event) {
+            var numero = document.getElementById('numeroTelefono').value;
+            if (numero.length >= 4) {
+                // Limpiar y destruir la tabla
+                $('#tablaNumeros').DataTable().clear();
+                $('#tablaNumeros').DataTable().destroy();
+
+                // Volver a llenarla con la información
+                $('#tablaNumeros').DataTable({
+                    "ajax": {
+                        "type": "get",
+                        "dataSrc": "",
+                        "url": "http://189.254.158.196:8081/api/numeros/w/" + numero
+                    },
+                    "columns": [{
+                        "data": "numero_telefonico"
+                    }],
+                    "searching": false,
+                    "paging": false,
+                    "info": false,
+                    "retrieve": true,
+                    "destroy": true,
+                    "language": {
+                        "sProcessing": "Procesando...",
+                        // "sZeroRecords": "No se encontró el número ",
+                        "sEmptyTable": "En el estado de Durango no se tiene reporte de fraude o extorsión del número ingresado.",
+                        "sLoadingRecords": "Buscando..",
+                    }
+                });
+
+
+            } else {
+                Swal.fire({
+                    title: '¡Ingrese al menos 4 dígitos!',
+                    // text: "¡Ingrese al menos 4 dígitos!",
+                    icon: 'error',
+                    confirmButtonColor: '#61A1BF',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.close();
+                    }
+                })
+            }
+        });
+    </script>
+
+</body>
+
+</html>

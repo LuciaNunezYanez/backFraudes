@@ -1,0 +1,29 @@
+body,
+html {
+    height: 100%;
+}
+
+.fondo {
+    background-image: url("../../images/fondo.JPG");
+    /* height: 100% !important; */
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#web:hover {
+    transform: scale(1.6);
+    color: rgb(161, 216, 230);
+}
+
+#twitter:hover {
+    transform: scale(1.6);
+    color: rgb(4, 178, 221);
+}
+
+#fb:hover {
+    margin-left: 10px;
+    transform: scale(1.6);
+    color: rgb(27, 70, 151);
+}
