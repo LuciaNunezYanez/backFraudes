@@ -15,8 +15,9 @@ class Server {
 
     routes() {
         this.app.use('/api/numeros', require('../routes/numeros'));
-        this.app.use('/login', require('../routes/login'));
+        this.app.use('/login', require('../routes/usuarios'));
         this.app.use('/cat', require('../routes/catalogos'));
+        this.app.use('/estadistica', require('../routes/estadistica'));
         this.app.use('/', require('../routes/public'));
     }
 
